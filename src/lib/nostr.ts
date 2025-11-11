@@ -7,11 +7,16 @@ export async function getUserDayPosts(
 ): Promise<Event[]> {
   const pool = new SimplePool();
 
-  const startOfDay = new Date(date);
+  // Convert to JST (UTC+9)
+  const jstDate = new Date(
+    date.toLocaleString("en-US", { timeZone: "Asia/Tokyo" }),
+  );
+
+  const startOfDay = new Date(jstDate);
   startOfDay.setHours(0, 0, 0, 0);
   const since = Math.floor(startOfDay.getTime() / 1000);
 
-  const endOfDay = new Date(date);
+  const endOfDay = new Date(jstDate);
   endOfDay.setHours(23, 59, 59, 999);
   const until = Math.floor(endOfDay.getTime() / 1000);
 

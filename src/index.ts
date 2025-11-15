@@ -115,7 +115,7 @@ NG行動
 
 console.log(prompt);
 const response = await client.chat.send({
-  model: "openrouter/polaris-alpha",
+  model: "qwen/qwen3-235b-a22b:free",
   messages: [
     { role: "system", content: character },
     { role: "user", content: prompt },

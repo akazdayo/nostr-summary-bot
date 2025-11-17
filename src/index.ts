@@ -115,7 +115,7 @@ NG行動
 
 console.log(prompt);
 const response = await client.chat.send({
-  model: "qwen/qwen3-235b-a22b:free",
+  model: "qwen/qwen3-235b-a22b",
   messages: [
     { role: "system", content: character },
     { role: "user", content: prompt },
